@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+
+.product {
+    width: 350px;;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0px;
+    padding: 10px 5px;
+    gap: 5px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border-radius: 10px;
+    transition: 0.7s;
+}
+
+#lightproduct {
+    outline: 2px solid rgb(4, 255, 0);
+    background-color: aliceblue;
+    color: black;
+}
+#lightproduct:hover {
+    outline: 2px solid rgb(204, 0, 255);
+    background-color: rgb(0, 38, 72);
+    color: aliceblue;
+}
+
+#darkproduct {
+    outline: 2px solid rgb(1, 186, 253);
+    background-color: rgb(44, 0, 74);
+    color: aliceblue;
+}
+#darkproduct:hover {
+    outline: 2px solid rgb(1, 18, 253);
+    background-color: rgb(224, 185, 250);
+    color: black;
+}
+
+.product:hover {
+    transform: scale(1.03);
+}
+
+.product > div > img {
+    width: 100px;
+}
+
+.productimageholder {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.productname {
+    height: 50px;
+    width: 100%;
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+}
+
+.productprice {
+    height: 40px;
+    color: crimson;
+    width: 85%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 17px;
+}
+
+.productdescription {
+    font-style: italic;
+    text-align: justify;
+    color: rgb(123, 123, 123);
+}
+
+.productrating {
+    font-family: "Jaro", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.productstock {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    margin: 7px 0px;
+}
+
+.productstock > span {
+    font-weight: 900;
+    color: rgb(180, 0, 180);
+}
+
+.cartnwishlistbtnholder {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.cartnwishlistbtnholder > button {
+    cursor: pointer;
+    padding: 8px 10px;
+    border-radius: 5px;
+    border: none;
+    appearance: button;
+    background-color: #004cff;
+    border-radius: 16px;
+    color: #ff0000;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 700;
+    outline: none;
+    overflow: visible;
+    padding: 10px 25px;
+}
+
+.cartnwishlistbtnholder > button:hover {
+    background-color: rgb(0, 145, 255);
+}

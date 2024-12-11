@@ -1,0 +1,8 @@
+.products {
+    width: 1270px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
