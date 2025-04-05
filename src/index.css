@@ -1,14 +1,6 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+@import "tailwindcss";
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #000000;
 
-}
-#root {
-  background-color: rgb(0, 0, 0);
-}
 ::-webkit-scrollbar {
-  width: 0px;
+    width: 0;
 }

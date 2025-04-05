@@ -1,26 +1,79 @@
-import React, { useContext } from 'react'
-import './WishListProduct.css';
-import { MdDeleteSweep } from "react-icons/md";
-import { IoMdArrowRoundForward } from "react-icons/io";
+// import React, { useContext } from 'react';
+// import { MdDeleteSweep } from 'react-icons/md';
+// import { IoMdArrowRoundForward } from 'react-icons/io';
+// import { AppContext } from '../context/AppContext';
+
+// export default function WishListProduct({ product }) {
+//   const { addToCartHandler, removeFromWishListHandler } = useContext(AppContext);
+
+//   return (
+//     <div className="flex flex-row justify-center items-center gap-8 p-5 rounded-md transition-transform duration-700 hover:shadow-xl hover:scale-110 relative left-[150px]">
+//       <img src={product.image} alt="product image here" className="h-[150px]" />
+//       <div className="flex flex-col w-[200px] gap-5">
+//         <div className="text-lg font-bold">{product.name}</div>
+//         <div className="text-sm font-bold">💲{product.price}</div>
+//         <div className="text-sm font-bold">{product.rating.rate}🌟</div>
+//         <div className="italic">{product.rating.count} units left in stock</div>
+//         <div className="flex flex-row gap-5">
+//           <button
+//             className="px-4 py-1 text-lg bg-blue-200 outline-[5px] outline-blue-600 border-[3px] border-black text-blue-700 rounded flex items-center justify-center"
+//             onClick={() => removeFromWishListHandler(product)}
+//           >
+//             <MdDeleteSweep />
+//           </button>
+//           <button
+//             className="px-4 py-1 text-lg bg-blue-200 outline-[5px] outline-blue-600 border-[3px] border-black text-blue-700 rounded flex items-center justify-center gap-1"
+//             onClick={() => addToCartHandler(product)}
+//           >
+//             Move to Cart <IoMdArrowRoundForward />
+//           </button>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+
+
+
+
+
+
+import React, { useContext } from 'react';
+import { MdDeleteSweep } from 'react-icons/md';
+import { IoMdArrowRoundForward } from 'react-icons/io';
 import { AppContext } from '../context/AppContext';
 
-export default function WishListProduct({product}) {
-
-  let {addToCartHandler,removeFromWishListHandler} = useContext(AppContext);
+export default function WishListProduct({ product }) {
+  const { addToCartHandler, removeFromWishListHandler } = useContext(AppContext);
 
   return (
-    <div className='wishlistproduct'>
-      <img src={product.image} alt="product image here" height="150px"/>
-      <div className='productdetails'>
-        <div className='pname'>{product.name}</div>
-        <div className='pprice'>💲{product.price}</div>
-        <div className='prating'>{product.rating.rate}🌟</div>
-        <div className='pstock'>{product.rating.count} units left in stock</div>
-        <div className='btnholder'>
-            <button className='btn' onClick={() => removeFromWishListHandler(product)}><MdDeleteSweep/></button>
-            <button className='btn' onClick={() => addToCartHandler(product)}>Move to Cart <IoMdArrowRoundForward/></button>
+    <div className="flex items-center gap-6 p-4 rounded-lg shadow-md bg-white dark:bg-gray-800 dark:border-gray-700 transform transition-all duration-300 hover:scale-105">
+      <img
+        src={product.image}
+        alt="product image here"
+        className="w-24 h-24 object-contain rounded"
+      />
+      <div className="flex-grow space-y-2">
+        <div className="text-lg font-semibold text-gray-900 dark:text-gray-100">{product.name}</div>
+        <div className="text-md text-gray-700 dark:text-gray-300">💲{product.price}</div>
+        <div className="text-sm text-yellow-500">{product.rating.rate} <span className="text-gray-500 dark:text-gray-400">🌟</span></div>
+        <div className="text-sm italic text-gray-600 dark:text-gray-400">{product.rating.count} units left</div>
+        <div className="flex items-center space-x-2">
+          <button
+            className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-3 rounded focus:outline-none transition-colors duration-200"
+            onClick={() => removeFromWishListHandler(product)}
+          >
+            <MdDeleteSweep size={20} />
+          </button>
+          <button
+            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-3 rounded focus:outline-none transition-colors duration-200 flex items-center gap-1"
+            onClick={() => addToCartHandler(product)}
+          >
+            Move to Cart <IoMdArrowRoundForward size={20} />
+          </button>
         </div>
       </div>
     </div>
-  )
+  );
 }

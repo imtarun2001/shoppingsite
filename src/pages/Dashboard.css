@@ -1,9 +1,0 @@
-.dashboard {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    padding-top: 80px;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}

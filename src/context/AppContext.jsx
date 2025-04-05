@@ -112,14 +112,20 @@ export default function AppContextProvider({children}) {
     function addToWishListHandler(product) {
         const isProductInWishList = wishListProducts.find((p) => p.id===product.id)
         if(isProductInWishList) {
-            setWishListProducts((wishListProducts.filter(pid => pid !== id)));
+            setWishListProducts((wishListProducts.filter(p => p.id !== product.id)));
             setWishListTotalPrice((prev) => prev-product.price);
             // console.log("Product removed from wishlist");
             toast.success("Product removed from wishlist")
         }
         else {
-            setWishListProducts((prev) => [...prev,product]);
-            setWishListTotalPrice((prev) => prev+product.price);
+            if(wishListProducts.length === 0) {
+                setWishListProducts([product]);
+                setWishListTotalPrice(product.price);
+            }
+            else {
+                setWishListProducts((prev) => [...prev,product]);
+                setWishListTotalPrice((prev) => prev+product.price);
+            }
             // console.log("Product added to wishlist");
             toast.success("Product added to wishlist");
         }
@@ -263,7 +269,7 @@ export default function AppContextProvider({children}) {
     const [dark,setDark] = useState(true);
     function themeHandler() {
       setDark(!dark);
-      dark ? toast.success("Dark theme activated") : toast.success("Ligth theme activated")
+      dark ? toast.success("Ligth theme activated") : toast.success("Dark theme activated")
     }
 
 
