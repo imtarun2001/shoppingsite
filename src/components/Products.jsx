@@ -1,24 +1,3 @@
-// import React, { useContext } from 'react';
-// import { AppContext } from '../context/AppContext';
-// import Product from './Product';
-
-// export default function Products() {
-//   const { getProducts } = useContext(AppContext);
-
-//   return (
-//     <div className="w-[1270px] flex flex-wrap justify-center gap-10">
-//       {getProducts().map((product) => (
-//         <Product key={product.id} product={product} />
-//       ))}
-//     </div>
-//   );
-// }
-
-
-
-
-
-
 import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 import Product from './Product';
