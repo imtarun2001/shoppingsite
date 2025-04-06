@@ -4,6 +4,7 @@ import CartProduct from '../components/CartProduct';
 import { IoMdLock } from 'react-icons/io';
 import { BsCart4 } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export default function CartPage() {
   const { cartProducts, price } = useContext(AppContext);
@@ -25,8 +26,15 @@ export default function CartPage() {
                 ))}
               </div>
             ) : (
-              <div className="text-gray-600 dark:text-gray-400 text-center py-10">
-                Your cart is empty.
+              <div className="text-white text-center flex flex-col justify-center items-center gap-2.5 py-30">
+                <div className='inline-block animate-bounce'>Your Cart is empty!!😢</div>
+                <div>
+                  <NavLink to="/">
+                    <button className='text-lg cursor-pointer font-semibold bg-blue-600 hover:bg-blue-500 py-1 px-5 rounded-lg'>
+                      Go to Home
+                    </button>
+                  </NavLink>
+                </div>
               </div>
             )}
           </div>
@@ -46,7 +54,6 @@ export default function CartPage() {
                 Total Amount: <span className="text-fuchsia-600 dark:text-fuchsia-400">💲{price.toFixed(2)}</span>
               </p>
             </div>
-            {cartProducts.length > 0 && (
               <button
                 onClick={() => navigate('/checkout')}
                 className="w-full flex items-center justify-center bg-green-500 hover:bg-green-600 text-white font-semibold py-3 rounded-md focus:outline-none transition-colors duration-200"
@@ -54,7 +61,6 @@ export default function CartPage() {
                 <IoMdLock className="mr-2" />
                 Check out
               </button>
-            )}
           </div>
         </div>
       </div>

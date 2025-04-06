@@ -12,7 +12,7 @@ export default function DashboardPage() {
   }, []); // Added dependency array
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
+    <div className="min-h-screen">
       <Filterbar />
       <div className="container mx-auto py-8">
         {loading ? <Spinner /> : <Products />}

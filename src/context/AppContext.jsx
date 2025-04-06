@@ -109,31 +109,28 @@ export default function AppContextProvider({children}) {
 
     const [wishListTotalPrice,setWishListTotalPrice] = useState(0);
     const [wishListProducts,setWishListProducts] = useState([]);
-    function addToWishListHandler(product) {
-        const isProductInWishList = wishListProducts.find((p) => p.id===product.id)
-        if(isProductInWishList) {
-            setWishListProducts((wishListProducts.filter(p => p.id !== product.id)));
-            setWishListTotalPrice((prev) => prev-product.price);
-            // console.log("Product removed from wishlist");
-            toast.success("Product removed from wishlist")
-        }
-        else {
-            if(wishListProducts.length === 0) {
-                setWishListProducts([product]);
-                setWishListTotalPrice(product.price);
-            }
-            else {
-                setWishListProducts((prev) => [...prev,product]);
-                setWishListTotalPrice((prev) => prev+product.price);
-            }
-            // console.log("Product added to wishlist");
-            toast.success("Product added to wishlist");
-        }
-    }
 
+    function addToWishListHandler(product) {
+        const isProductInWishList = wishListProducts.find((p) => p.id === product.id);
+      
+        if (isProductInWishList) {
+          const updatedList = wishListProducts.filter((p) => p.id !== product.id);
+          setWishListProducts(updatedList);
+          setWishListTotalPrice((prev) => prev - product.price);
+          toast.success("Product removed from wishlist");
+        } else {
+          const updatedList = [...wishListProducts, product];
+          setWishListProducts(updatedList);
+          const newTotal = updatedList.reduce((acc, curr) => acc + curr.price, 0);
+          setWishListTotalPrice(newTotal);
+          toast.success("Product added to wishlist");
+        }
+      }
+    
     function removeFromWishListHandler(product) {
         const newWishListProducts = wishListProducts.filter((p) => p.id!==product.id);
         setWishListProducts(newWishListProducts);
+        setWishListTotalPrice((prev) => prev - product.price);
     }
     
     

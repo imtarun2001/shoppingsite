@@ -17,7 +17,7 @@ export default function Product({ product }) {
 
   return (
     <div
-      className={`group relative flex flex-col items-center justify-between p-6 rounded-lg shadow-md transition-colors duration-300 cursor-pointer ${
+      className={`group relative flex flex-col items-center justify-between p-6 rounded-lg shadow-md transition hover:scale-105 duration-1000 ${
         dark
           ? 'bg-gray-800 text-gray-100 hover:bg-gray-700'
           : 'bg-white text-gray-800 hover:bg-gray-100'
@@ -42,16 +42,22 @@ export default function Product({ product }) {
         <span className="text-xl font-bold text-crimson-500 dark:text-crimson-400">
           💲{product.price}
         </span>
-        <span className="text-sm text-yellow-500">
-          {product.rating.rate} <span className="text-gray-500 dark:text-gray-400">🌟</span>
+        <span className="text-sm text-yellow-600 font-bold">
+          {product.rating.rate} <span>🌟</span>
         </span>
       </div>
+
+        <div className="font-semibold font-mono py-2">
+          {
+            product.description.substr(0,100) + "..."
+          }
+        </div>
 
       {/* Buttons */}
       <div className="flex justify-center space-x-3 w-full">
         <button
           onClick={() => addToCartHandler(product)}
-          className={`flex items-center justify-center px-4 py-2 text-sm font-semibold rounded-md focus:outline-none transition-colors duration-200 ${
+          className={`flex items-center justify-center px-4 py-2 text-sm font-semibold cursor-pointer rounded-md focus:outline-none transition-colors duration-200 ${
             isInCart
               ? 'bg-red-500 text-white hover:bg-red-600'
               : 'bg-blue-500 text-white hover:bg-blue-600'
@@ -61,15 +67,16 @@ export default function Product({ product }) {
         </button>
         <button
           onClick={() => addToWishListHandler(product)}
-          className={`flex items-center justify-center px-4 py-2 text-sm font-semibold rounded-md focus:outline-none transition-colors duration-200 ${
+          className={`flex items-center justify-center px-4 py-2 text-sm font-semibold cursor-pointer rounded-md focus:outline-none transition-colors duration-200 ${
             isInWishlist
               ? 'bg-pink-500 text-white hover:bg-pink-600'
               : 'bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-400 dark:hover:bg-gray-600'
           }`}
         >
-          {isInWishlist ? <AiFillHeart size={20} /> : <AiOutlineHeart size={20} />}
+          {isInWishlist ? <AiFillHeart size={20} className='cursor-pointer'/> : <AiOutlineHeart size={20} className='cursor-pointer'/>}
         </button>
       </div>
+
 
       {/* Stock Indicator */}
       <div className="absolute top-2 right-2 bg-green-500 text-white text-xs font-semibold px-2 py-1 rounded-full">
