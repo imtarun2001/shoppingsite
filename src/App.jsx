@@ -9,6 +9,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import PrivateRoute from './pages/PrivateRoute';
 import { useContext } from 'react';
 import { AppContext } from './context/AppContext';
+import React,{ useEffect } from 'react';
 
 function App() {
   const { dark } = useContext(AppContext);
