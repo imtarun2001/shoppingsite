@@ -54,12 +54,12 @@ export default function Product({ product }) {
         </div>
 
       {/* Buttons */}
-      <div className="flex justify-center space-x-3 w-full">
+      <div className="flex justify-center space-x-10 w-full">
         <button
           onClick={() => addToCartHandler(product)}
           className={`flex items-center justify-center px-4 py-2 text-sm font-semibold cursor-pointer rounded-md focus:outline-none transition-colors duration-200 ${
             isInCart
-              ? 'bg-red-500 text-white hover:bg-red-600'
+              ? 'bg-sky-500 text-white hover:bg-sky-600'
               : 'bg-blue-500 text-white hover:bg-blue-600'
           }`}
         >
@@ -69,8 +69,8 @@ export default function Product({ product }) {
           onClick={() => addToWishListHandler(product)}
           className={`flex items-center justify-center px-4 py-2 text-sm font-semibold cursor-pointer rounded-md focus:outline-none transition-colors duration-200 ${
             isInWishlist
-              ? 'bg-pink-500 text-white hover:bg-pink-600'
-              : 'bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-400 dark:hover:bg-gray-600'
+              ? 'bg-gray-200 text-pink-500 hover:bg-gray-600'
+              : 'bg-gray-200 text-black hover:bg-gray-600 hover:text-white'
           }`}
         >
           {isInWishlist ? <AiFillHeart size={20} className='cursor-pointer'/> : <AiOutlineHeart size={20} className='cursor-pointer'/>}

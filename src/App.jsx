@@ -13,6 +13,15 @@ import { AppContext } from './context/AppContext';
 function App() {
   const { dark } = useContext(AppContext);
 
+  //this useeffect is for handling routes by github-pages
+  useEffect(() => {
+    const redirect = sessionStorage.redirect;
+    if (redirect) {
+      sessionStorage.removeItem('redirect');
+      window.history.replaceState(null, null, redirect);
+    }
+  }, []);
+
   return (
     <div
       className={`min-h-screen flex flex-col ${
